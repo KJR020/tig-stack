@@ -31,10 +31,13 @@ services:
       - ${GRAFANA_PORT}:3000
 
   nodered:
-    image: nodered/node-red
+    image: nodered/node-red:2.2.3
+    volumes:
+      - nodered-storage:/data:rw
     ports:
-      - "${NODERED_PORT}}:1880"
+      - ${NODERED_PORT}:1880
 
 volumes:
   grafana-storage:
   influxdb-storage:
+  nodered-storage:
